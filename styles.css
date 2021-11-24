@@ -65,6 +65,9 @@ h2 {
   letter-spacing: -0.05em;
   text-transform: uppercase;
   color: var(--light);
+  border-bottom: 2px solid var(--light);
+  margin-bottom: 0.5em;
+  padding-bottom: 0.5em;;
 }
 
 p {
@@ -97,21 +100,59 @@ p {
 /* HEADER
 ----------------------------------------------- */
 header {
-  
+  background: var(--mid);
+  border-radius: 0.5em;
+  margin: 0.5em;
+  padding: 0.5em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
+.toggle {
+  text-align: right;
+  cursor: pointer;
+  grid-row-start: 1;
+  grid-column-end: -1;
+}
 
+nav {
+  display: grid;
+  grid-template-columns: 1fr;
+  text-align: center;
+  grid-column: 1 / -1;
+  height: 0;
+  overflow: hidden;
+  transition: opacity 0.25s;
+  opacity: 0%;
+  grid-gap: 1em;
+}
 
-
+.nav-active nav {
+  height: 100%;
+  opacity: 100%;
+}
 
 
 
 /* MAIN
 ----------------------------------------------- */
-main {
 
+section {
+  padding: 10vh 0.5em;
 }
 
+
+
+
+
+/* BANNER
+----------------------------------------------- */
+.banner img {
+  border-radius: 0.5em;
+  filter: saturate(0);
+  opacity: 0.75;
+  mix-blend-mode: lighten;
+}
 
 
 
@@ -119,7 +160,12 @@ main {
 /* FOOTER
 ----------------------------------------------- */
 footer {
-  
+  background: var(--mid);
+  padding: 10vh 0.5em;
+}
+
+footer p {
+  max-width: 30em;
 }
 
 
@@ -130,13 +176,52 @@ footer {
 
 /* MEDIA QUERIES
 ----------------------------------------------- */
-@media (min-width: 800px) {
+@media (min-width: 700px) {
+
+  .toggle {
+    display: none;
+  }
+
+  nav {
+    height: 100%;
+    opacity: 100%;
+    grid-template-columns: auto auto auto;
+    grid-column: 2 / -1;
+  }
+
+}
+
+@media (min-width: 1040px) {
   
   body {
     font-size: 24px;
   }
 
+  main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 0.5em;
+  }
+
+  section {
+    grid-column-start: 4;
+    grid-column-end: -1;
+  }
+
+  .left-column {
+    grid-column-start: 1;
+    grid-column-end: 6;
+  }
+
+  h1 {
+    position: absolute;
+    left: 0.5rem;
+    max-width: 9em;
+  }
+
 }
+
+
 
 
 @media (prefers-color-scheme: light) {
