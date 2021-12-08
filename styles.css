@@ -171,7 +171,33 @@ footer p {
 
 
 
+/* CARDS
+----------------------------------------------- */
+.card {
+  display: grid;
+  align-content: end;
+  padding: 0.5em 1em;
+  margin-bottom: 1em;
+  border-radius: 0.5em;
+  min-height: 12em; 
+  background-size: cover;
+  background-position: center;
+  filter: saturate(0);
+  transition: all 0.5s;
+}
 
+.card:hover {
+  filter: saturate(1);
+  text-decoration: none;
+}
+
+.card-frida {
+  background-image: url(images/frida.png);
+}
+
+.card-think-twice {
+  background-image: url(images/think-twice.png);
+}
 
 
 /* MEDIA QUERIES
@@ -191,7 +217,7 @@ footer p {
 
 }
 
-@media (min-width: 1040px) {
+@media (min-width: 850px) {
   
   body {
     font-size: 24px;
@@ -217,11 +243,19 @@ footer p {
     position: absolute;
     left: 0.5rem;
     max-width: 9em;
+    font-size: 3em;
   }
 
 }
 
 
+@media (min-width: 1040px) {
+
+  h1 {
+    font-size: 4em;
+  }
+
+}
 
 
 @media (prefers-color-scheme: light) {
@@ -229,6 +263,26 @@ footer p {
   body {
     background: var(--light); 
     color: var(--dark);
+  }
+
+  h1, h2 {
+    color: var(--dark);
+  }
+
+  .banner img {
+    mix-blend-mode: darken;
+  }
+
+  footer {
+    color: var(--light);
+  }
+
+  .button {
+    color: var(--dark);
+  }
+
+  .button:hover {
+    color: var(--light);
   }
 
 }
